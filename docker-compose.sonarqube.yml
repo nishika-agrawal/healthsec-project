@@ -1,0 +1,32 @@
+# Optional: run a local SonarQube server for testing the pipeline without
+# a SonarCloud account.
+#
+# Start it with:
+#   docker compose -f docker-compose.sonarqube.yml up -d
+#
+# Then open http://localhost:9000 (default login: admin / admin),
+# create a project with key "healthsec-devsecops-framework", and
+# generate a token to use as SONAR_TOKEN.
+
+version: "3.9"
+
+services:
+  sonarqube:
+    image: sonarqube:community
+    container_name: healthsec_sonarqube
+    restart: unless-stopped
+    environment:
+      # Disables an Elasticsearch bootstrap check that commonly fails
+      # on developer laptops with low virtual memory limits.
+      SONAR_ES_BOOTSTRAP_CHECKS_DISABLE: "true"
+    ports:
+      - "127.0.0.1:9000:9000"
+    volumes:
+      - healthsec_sonarqube_data:/opt/sonarqube/data
+      - healthsec_sonarqube_extensions:/opt/sonarqube/extensions
+      - healthsec_sonarqube_logs:/opt/sonarqube/logs
+
+volumes:
+  healthsec_sonarqube_data:
+  healthsec_sonarqube_extensions:
+  healthsec_sonarqube_logs:

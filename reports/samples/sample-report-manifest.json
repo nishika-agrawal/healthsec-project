@@ -1,0 +1,20 @@
+{
+  "sonarqube": {
+    "path": "reports/sonarqube/sonarqube-report.json",
+    "found": true,
+    "valid_json": true,
+    "reason": null
+  },
+  "trivy": {
+    "path": "reports/trivy/trivy-report.json",
+    "found": true,
+    "valid_json": true,
+    "reason": null
+  },
+  "dependency_check": {
+    "path": "reports/dependency-check/dependency-check-report.json",
+    "found": true,
+    "valid_json": true,
+    "reason": null
+  }
+}

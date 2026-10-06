@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Environment files (never commit real secrets)
+.env
+backend/.env
+frontend/.env
+.env.prod
+**/.env.prod
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Database data (if run without Docker volumes)
+*.sqlite3
+
+# Security scan reports / artifacts (generated fresh by CI each run)
+reports/*
+!reports/samples/
+!reports/samples/**
+.scannerwork/
+.dependency-check/
+odc-reports/

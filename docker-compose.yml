@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: healthsec_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: healthsec_user
+      POSTGRES_PASSWORD: healthsec_pass
+      POSTGRES_DB: healthsec_db
+    ports:
+      # Exposed only to localhost for local development/debugging.
+      # This should NOT be exposed publicly in the AWS deployment (Phase 10).
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - healthsec_pg_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: healthsec_backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql://healthsec_user:healthsec_pass@db:5432/healthsec_db
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build: ./frontend
+    container_name: healthsec_frontend
+    restart: unless-stopped
+    environment:
+      VITE_API_URL: http://localhost:8000
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"
+
+volumes:
+  healthsec_pg_data:

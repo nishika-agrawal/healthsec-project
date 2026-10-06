@@ -1,0 +1,63 @@
+{
+  "classification_report": {
+    "Low": {
+      "precision": 0.8495145631067961,
+      "recall": 0.8495145631067961,
+      "f1-score": 0.8495145631067961,
+      "support": 206.0
+    },
+    "Medium": {
+      "precision": 0.7758620689655172,
+      "recall": 0.8881578947368421,
+      "f1-score": 0.8282208588957055,
+      "support": 152.0
+    },
+    "High": {
+      "precision": 0.8,
+      "recall": 0.38095238095238093,
+      "f1-score": 0.5161290322580645,
+      "support": 42.0
+    },
+    "accuracy": 0.815,
+    "macro avg": {
+      "precision": 0.8084588773574378,
+      "recall": 0.7062082795986729,
+      "f1-score": 0.7312881514201887,
+      "support": 400.0
+    },
+    "weighted avg": {
+      "precision": 0.8163275862068966,
+      "recall": 0.815,
+      "f1-score": 0.8064174747674648,
+      "support": 400.0
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "matrix": [
+      [
+        175,
+        29,
+        2
+      ],
+      [
+        15,
+        135,
+        2
+      ],
+      [
+        16,
+        10,
+        16
+      ]
+    ],
+    "note": "Rows are true labels, columns are predicted labels, in the order given by 'labels'."
+  },
+  "training_set_size": 1600,
+  "test_set_size": 400,
+  "note": "Evaluated against a held-out split of the SYNTHETIC dataset described in app/ml/dataset.py. These numbers show how well the model approximates the documented rule-based labels, not real-world deployment risk."
+}

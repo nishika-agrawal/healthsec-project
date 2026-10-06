@@ -1,0 +1,51 @@
+# Production deployment compose file - used ONLY on the EC2 server, not
+# for local development (local development still uses docker-compose.yml,
+# unchanged, which builds images locally from source).
+#
+# This file references prebuilt images from GitHub Container Registry
+# (pushed by the CI/CD pipeline - see .github/workflows/devsecops-pipeline.yml)
+# rather than building from source on the server itself.
+#
+# Image names and all secrets come from /opt/healthsec/.env.prod on the
+# server, which is created manually (see AWS_DEPLOYMENT.md) and NEVER
+# committed to git.
+
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: healthsec_db
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    ports:
+      # Bound to localhost only - PostgreSQL is never reachable from
+      # outside this server, regardless of what the AWS security group
+      # allows. This is the same binding used in local docker-compose.yml.
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - healthsec_pg_data:/var/lib/postgresql/data
+
+  backend:
+    image: ${BACKEND_IMAGE}
+    container_name: healthsec_backend
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: ${FRONTEND_IMAGE}
+    container_name: healthsec_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+
+volumes:
+  healthsec_pg_data:

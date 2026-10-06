@@ -1,0 +1,67 @@
+{
+  "reportSchema": "1.1",
+  "scanInfo": {
+    "engineVersion": "9.0.9"
+  },
+  "projectInfo": {
+    "name": "healthsec-devsecops-framework",
+    "reportDate": "2026-01-01T00:00:00.000Z"
+  },
+  "dependencies": [
+    {
+      "fileName": "example-requests-2.25.0.tar.gz",
+      "filePath": "backend/requirements.txt",
+      "packages": [
+        {
+          "id": "pkg:pypi/example-requests@2.25.0",
+          "confidence": "HIGHEST"
+        }
+      ],
+      "vulnerabilities": [
+        {
+          "source": "NVD",
+          "name": "CVE-2023-32681",
+          "severity": "MEDIUM",
+          "cvssv3": {
+            "baseScore": 6.1,
+            "baseSeverity": "MEDIUM"
+          },
+          "description": "Illustrative sample finding: proxy-authorization header leak in an HTTP client library."
+        }
+      ]
+    },
+    {
+      "fileName": "example-jwt-lib-1.2.0.tar.gz",
+      "filePath": "backend/requirements.txt",
+      "packages": [
+        {
+          "id": "pkg:pypi/example-jwt-lib@1.2.0",
+          "confidence": "HIGHEST"
+        }
+      ],
+      "vulnerabilities": [
+        {
+          "source": "NVD",
+          "name": "CVE-2022-11111",
+          "severity": "HIGH",
+          "cvssv3": {
+            "baseScore": 7.5,
+            "baseSeverity": "HIGH"
+          },
+          "description": "Illustrative sample finding: algorithm confusion vulnerability in a JWT library."
+        }
+      ]
+    },
+    {
+      "fileName": "react-dom-18.3.1.tgz",
+      "filePath": "frontend/package.json",
+      "packages": [
+        {
+          "id": "pkg:npm/react-dom@18.3.1",
+          "confidence": "HIGHEST"
+        }
+      ],
+      "vulnerabilities": []
+    }
+  ]
+}

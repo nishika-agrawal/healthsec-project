@@ -1,0 +1,33 @@
+{
+  "scanner": "sonarqube",
+  "status": "ok",
+  "project_key": "healthsec-devsecops-framework",
+  "total_issues": 3,
+  "issues": [
+    {
+      "rule": "python:S5445",
+      "severity": "CRITICAL",
+      "type": "VULNERABILITY",
+      "component": "backend/app/auth_security.py",
+      "message": "Illustrative sample finding: using a predictable value where a cryptographically strong one is expected.",
+      "line": 12
+    },
+    {
+      "rule": "python:S105",
+      "severity": "MAJOR",
+      "type": "VULNERABILITY",
+      "component": "backend/app/config.py",
+      "message": "Illustrative sample finding: hard-coded credential-like default value.",
+      "line": 18
+    },
+    {
+      "rule": "python:S1481",
+      "severity": "MINOR",
+      "type": "CODE_SMELL",
+      "component": "backend/app/crud.py",
+      "message": "Illustrative sample finding: unused local variable.",
+      "line": 44
+    }
+  ],
+  "quality_gate_status": "ERROR"
+}

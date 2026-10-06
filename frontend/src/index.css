@@ -1,0 +1,501 @@
+body {
+  margin: 0;
+  background-color: #f7f8fa;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.auth-container {
+  max-width: 360px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hint {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.error {
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #2563eb;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.secondary {
+  background-color: #e5e7eb;
+  color: #1a1a1a;
+}
+
+button.danger {
+  background-color: #dc2626;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.page {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.form-panel {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.patient-form .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.patient-form textarea {
+  min-height: 60px;
+  margin-bottom: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.patient-table th,
+.patient-table td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.patient-table th {
+  background-color: #f0f2f5;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ---------------------------------------------------------------- */
+/* Navigation bar                                                    */
+/* ---------------------------------------------------------------- */
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 10;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #2563eb;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
+.nav-link {
+  color: #444;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+}
+
+.nav-link.active {
+  background-color: #e0e7ff;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.nav-logout {
+  margin-left: auto;
+}
+
+/* ---------------------------------------------------------------- */
+/* Dashboard layout                                                  */
+/* ---------------------------------------------------------------- */
+
+.dashboard-page {
+  max-width: 1100px;
+}
+
+.dashboard-section {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-section h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.application-selector {
+  margin: 1rem 0;
+  max-width: 320px;
+}
+
+/* ---------------------------------------------------------------- */
+/* Stat cards (Overview / Risk Assessment)                           */
+/* ---------------------------------------------------------------- */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.stat-card {
+  background: #f7f8fa;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 0.35rem;
+}
+
+.stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.stat-value-small {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.stat-sub {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* ---------------------------------------------------------------- */
+/* Tables (scan history, findings, deployment history)               */
+/* ---------------------------------------------------------------- */
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  background-color: #f0f2f5;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.data-table tbody tr {
+  cursor: pointer;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f7f8fa;
+}
+
+.data-table tr.selected-row {
+  background-color: #e0e7ff;
+}
+
+.reason-cell {
+  max-width: 320px;
+}
+
+.severity-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+/* ---------------------------------------------------------------- */
+/* Charts                                                             */
+/* ---------------------------------------------------------------- */
+
+.chart-container {
+  margin: 1rem 0;
+}
+
+/* ---------------------------------------------------------------- */
+/* Badges                                                             */
+/* ---------------------------------------------------------------- */
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background-color: #e5e7eb;
+  color: #333;
+}
+
+.badge-approved {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.badge-review {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-blocked {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* ---------------------------------------------------------------- */
+/* Risk score bar                                                    */
+/* ---------------------------------------------------------------- */
+
+.risk-score-row {
+  margin: 1rem 0;
+}
+
+.risk-score-label {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.risk-score-bar-track {
+  width: 100%;
+  height: 10px;
+  background-color: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.risk-score-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+/* ---------------------------------------------------------------- */
+/* Recommendations                                                    */
+/* ---------------------------------------------------------------- */
+
+.recommendation-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.recommendation-item {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+}
+
+.recommendation-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.recommendation-category {
+  font-size: 0.8rem;
+  color: #666;
+  text-transform: capitalize;
+}
+
+.recommendation-action {
+  margin: 0.25rem 0;
+  font-size: 0.92rem;
+}
+
+.recommendation-linked {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.explanation-summary {
+  background: #f7f8fa;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.deployment-decision-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+/* ---------------------------------------------------------------- */
+/* Loading / error states                                            */
+/* ---------------------------------------------------------------- */
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-state {
+  padding: 1rem;
+  background-color: #fee2e2;
+  border-radius: 6px;
+  color: #991b1b;
+  margin: 1rem 0;
+}
+
+.error-state button {
+  margin-top: 0.5rem;
+}
+
+/* ---------------------------------------------------------------- */
+/* Responsive                                                        */
+/* ---------------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .patient-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+  }
+
+  .page,
+  .dashboard-page {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+}

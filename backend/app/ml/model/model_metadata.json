@@ -1,0 +1,61 @@
+{
+  "model_type": "RandomForestClassifier",
+  "sklearn_params": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 8,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 200,
+    "n_jobs": null,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "feature_columns": [
+    "critical_count",
+    "high_count",
+    "medium_count",
+    "low_count",
+    "max_cvss_score",
+    "max_cvss_score_missing",
+    "vulnerable_dependency_count",
+    "container_vulnerability_count",
+    "failed_security_checks",
+    "fix_available_count",
+    "total_findings"
+  ],
+  "classes": [
+    "High",
+    "Low",
+    "Medium"
+  ],
+  "trained_at": "2026-09-17T10:38:40.557979+00:00",
+  "dataset": {
+    "type": "synthetic",
+    "n_samples": 2000,
+    "note": "Synthetic dataset with rule-derived labels - see app/ml/dataset.py docstring for full limitations. Not validated against real-world outcomes."
+  },
+  "feature_importances": {
+    "critical_count": 0.23746345000587546,
+    "high_count": 0.1424963010767235,
+    "medium_count": 0.060871760510060706,
+    "low_count": 0.06584239464705056,
+    "max_cvss_score": 0.13892266198733605,
+    "max_cvss_score_missing": 0.015993375401080277,
+    "vulnerable_dependency_count": 0.042425977074319304,
+    "container_vulnerability_count": 0.03931548642117777,
+    "failed_security_checks": 0.051099854992745816,
+    "fix_available_count": 0.0602594505296856,
+    "total_findings": 0.14530928735394485
+  }
+}
